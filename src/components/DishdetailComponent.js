@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import {
   Card,
   CardImg,
-  CardImgOverlay,
   CardText,
   CardBody,
   CardTitle,
@@ -17,7 +16,7 @@ class Dishdetail extends Component {
   renderDish(dish) {
     if (dish != null) {
       return (
-        <div classname="col-12 col-md-5 m-1">
+        <div className="col-12 col-md-5 m-1">
           <Card>
             <CardImg width="100%" object src={dish.image} alt={dish.name} />
             <CardBody>
@@ -40,6 +39,7 @@ class Dishdetail extends Component {
             <p>{comment.comment}</p>
             <p>
               -- {comment.author},
+              &nbsp;
               {new Intl.DateTimeFormat("en-US", {
                 year: "numeric",
                 month: "short",
@@ -53,7 +53,7 @@ class Dishdetail extends Component {
       return (
         <div className="col-12 col-md-5 m-1">
           <h4>Comments</h4>
-          <ul class="list-unstyled">{cmnts}</ul>
+          <ul className="list-unstyled">{cmnts}</ul>
         </div>
       );
     } else {
@@ -64,7 +64,7 @@ class Dishdetail extends Component {
   render() {
     if (this.props.dish != null) {
       return (
-        <div class="container">
+        <div className="container">
           <div className="row">
             {/* {this.renderDish(this.state.selectedDish)} */}
             {this.renderDish(this.props.dish)}
