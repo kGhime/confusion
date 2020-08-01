@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { Navbar, NavbarBrand } from "reactstrap";
+
 import Menu from "./MenuComponent";
 import Dishdetail from "./DishdetailComponent";
+import Header from "./HeaderComponent";
+import Footer from "./FooterComponent";
 import { DISHES } from "../shared/dishes";
 
 //class based component
@@ -22,11 +24,7 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <Navbar dark color="primary">
-          <div className="container">
-            <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
-          </div>
-        </Navbar>
+        <Header />
         <Menu
           dishes={this.state.dishes}
           onClick={(dishId) => this.onDishSelect(dishId)}
@@ -42,6 +40,7 @@ class Main extends Component {
         {/* go to DISHES array, sleect dish item and pass to dish detail component
         filter function will give sub-array of the dishes which matches the
         dish id //item in index zero (even though there will be one item) */}
+        <Footer />
       </div>
     );
   }
