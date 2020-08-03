@@ -9,39 +9,29 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 
-function RenderLeader({ leaders }) {
-  if (leaders == null) {
-    return <div></div>;
-  }
-
-  const ldr = leaders.map((leader) => {
-    return (
-      <div key={leader.id} className="col-12 md-5">
-        <Media tag="li">
-          <Media left middle>
-            <Media object src={leader.image} alt={leader.name} />
-          </Media>
-          <Media body className="ml-5">
-            <Media heading>{leader.name}</Media>
-            <p>{leader.designation}</p>
-            <p>{leader.description}</p>
-          </Media>
-        </Media>
-      </div>
-    );
-  });
-
+function RenderLeader({ leader }) {
   return (
-    <div>
-      <Media list>{ldr}</Media>
+    <div key={leader.id} className="col-12 md-5">
+      <Media tag="li">
+        <Media left middle>
+          <Media object src={leader.image} alt={leader.name} />
+        </Media>
+        <Media body className="ml-5">
+          <Media heading>{leader.name}</Media>
+          <p>{leader.designation}</p>
+          <p>{leader.description}</p>
+        </Media>
+      </Media>
     </div>
   );
 }
 
 function About(props) {
   const leaders = props.leaders.map((leader) => {
-    return (<p>Leader {leader.name}</p>); 
-    
+    // return (<p>Leader {leader.name}</p>);
+    return (
+    <RenderLeader leader={leader} />
+    );
   });
 
   return (
@@ -120,8 +110,8 @@ function About(props) {
           <h2>Corporate Leadership</h2>
         </div>
         <div className="col-12">
-          {/* <Media list>{leaders}</Media> */}
-          <RenderLeader leaders={props.leaders} />
+          <Media list>{leaders}</Media>
+          {/* <RenderLeader leaders={props.leaders} /> */}
         </div>
       </div>
     </div>
