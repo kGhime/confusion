@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Home from "./HomeComponent";
 import Menu from "./MenuComponent";
 import Contact from "./ContactComponent";
-import Dishdetail from "./DishdetailComponent";
+
 import About from "./AboutComponent";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
@@ -70,10 +70,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 class Main extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+  
   componentDidMount() {
     this.props.fetchDishes();
     this.props.fetchComments();
